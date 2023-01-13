@@ -1,3 +1,158 @@
+let S8_DEF_POS = 0
+let S7_DEF_POS = 0
+let S6_DEF_POS = 0
+let S5_DEF_POS = 0
+let S4_DEF_POS = 0
+let S3_DEF_POS = 0
+let S2_DEF_POS = 0
+let S1_DEF_POS = 0
+let DELAY1 = 0
+let POS3 = 0
+let POS2 = 0
+let POS1 = 0
+POS1 = 30
+POS2 = 60
+POS3 = 50
+DELAY1 = 100
+S1_DEF_POS = 80
+S2_DEF_POS = 130
+S3_DEF_POS = 90
+S4_DEF_POS = 130
+S5_DEF_POS = 105
+S6_DEF_POS = 130
+S7_DEF_POS = 90
+S8_DEF_POS = 130
+
+function default_position() {
+    pca9685.Servo(pca9685.Servos.S1, S1_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S2, S2_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S3, S3_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S4, S4_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S5, S5_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S6, S6_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S7, S7_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S8, S8_DEF_POS)
+}
+function Donw() {
+    pca9685.Servo(pca9685.Servos.S1, 35)
+    pca9685.Servo(pca9685.Servos.S2, 0)
+    pca9685.Servo(pca9685.Servos.S3, 135)
+    pca9685.Servo(pca9685.Servos.S4, 0)
+    pca9685.Servo(pca9685.Servos.S5, 140)
+    pca9685.Servo(pca9685.Servos.S6, 0)
+    pca9685.Servo(pca9685.Servos.S7, 50)
+    pca9685.Servo(pca9685.Servos.S8, 0)
+}
+
+function STEP1() {
+    pca9685.Servo(pca9685.Servos.S2, S2_DEF_POS - POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S1, S1_DEF_POS + POS2)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S2, S2_DEF_POS + POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S1, S1_DEF_POS)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S2, S2_DEF_POS)
+    pause(DELAY1)
+}
+
+function STEP2() {
+    pca9685.Servo(pca9685.Servos.S6, S6_DEF_POS + POS3)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S5, S5_DEF_POS + POS2)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S6, S6_DEF_POS - POS3)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S5, S5_DEF_POS)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S6, S6_DEF_POS)
+    pause(DELAY1)
+}
+
+function STEP3() {
+    pca9685.Servo(pca9685.Servos.S4, S4_DEF_POS + POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S3, S3_DEF_POS - POS2)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S4, S4_DEF_POS - POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S3, S3_DEF_POS)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S4, S4_DEF_POS)
+    pause(DELAY1)
+}
+
+function STEP4() {
+    pca9685.Servo(pca9685.Servos.S8, S8_DEF_POS - POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S7, S7_DEF_POS - POS2)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S8, S8_DEF_POS + POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S7, S7_DEF_POS)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S8, S8_DEF_POS)
+    pause(DELAY1)
+}
+function STEP5() {
+    pca9685.Servo(pca9685.Servos.S2, S2_DEF_POS - POS1)
+    pca9685.Servo(pca9685.Servos.S6, S6_DEF_POS + POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S1, S1_DEF_POS + POS2)
+    pca9685.Servo(pca9685.Servos.S5, S5_DEF_POS + POS2)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S2, S2_DEF_POS + POS1)
+    pca9685.Servo(pca9685.Servos.S6, S6_DEF_POS - POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S1, S1_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S5, S5_DEF_POS)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S2, S2_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S6, S6_DEF_POS)
+    pause(DELAY1)
+}
+function STEP6() {
+    pca9685.Servo(pca9685.Servos.S4, S4_DEF_POS - POS1)
+    pca9685.Servo(pca9685.Servos.S8, S8_DEF_POS + POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S3, S3_DEF_POS + POS2)
+    pca9685.Servo(pca9685.Servos.S7, S7_DEF_POS + POS2)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S4, S4_DEF_POS + POS1)
+    pca9685.Servo(pca9685.Servos.S8, S8_DEF_POS - POS1)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S3, S3_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S7, S7_DEF_POS)
+    pause(DELAY1)
+    pca9685.Servo(pca9685.Servos.S4, S4_DEF_POS)
+    pca9685.Servo(pca9685.Servos.S8, S8_DEF_POS)
+    pause(DELAY1)
+}
+function Test() {
+    default_position()
+    for (let index = 0; index < 5; index++) {
+        STEP5()
+        STEP6()
+    }
+    pause(500)
+}
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    default_position()
+    pause(500)
+    Donw()
+    pause(500)
+    default_position()
+})
+controller.A.onEvent(ControllerButtonEvent.Released, function () {
+   
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    Test()
+})
+controller.B.onEvent(ControllerButtonEvent.Released, function () {
+
+})
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -120,39 +275,12 @@ scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     `)
+pause(1000)
+Donw()
+pause(1000)
+default_position()
+pause(1000)
+
 forever(function () {
-    pca9685.Servo(pca9685.Servos.S0, 0)
-    pca9685.Servo(pca9685.Servos.S1, 0)
-    pca9685.Servo(pca9685.Servos.S2, 0)
-    pca9685.Servo(pca9685.Servos.S3, 0)
-    pca9685.Servo(pca9685.Servos.S4, 0)
-    pca9685.Servo(pca9685.Servos.S5, 0)
-    pca9685.Servo(pca9685.Servos.S6, 0)
-    pca9685.Servo(pca9685.Servos.S7, 0)
-    pca9685.Servo(pca9685.Servos.S8, 0)
-    pca9685.Servo(pca9685.Servos.S9, 0)
-    pca9685.Servo(pca9685.Servos.S10, 0)
-    pca9685.Servo(pca9685.Servos.S11, 0)
-    pca9685.Servo(pca9685.Servos.S12, 0)
-    pca9685.Servo(pca9685.Servos.S13, 0)
-    pca9685.Servo(pca9685.Servos.S14, 0)
-    pca9685.Servo(pca9685.Servos.S15, 0)
-    pause(1000)
-    pca9685.Servo(pca9685.Servos.S0, 30)
-    pca9685.Servo(pca9685.Servos.S1, 40)
-    pca9685.Servo(pca9685.Servos.S2, 50)
-    pca9685.Servo(pca9685.Servos.S3, 60)
-    pca9685.Servo(pca9685.Servos.S4, 70)
-    pca9685.Servo(pca9685.Servos.S5, 80)
-    pca9685.Servo(pca9685.Servos.S6, 90)
-    pca9685.Servo(pca9685.Servos.S7, 100)
-    pca9685.Servo(pca9685.Servos.S8, 110)
-    pca9685.Servo(pca9685.Servos.S9, 120)
-    pca9685.Servo(pca9685.Servos.S10, 130)
-    pca9685.Servo(pca9685.Servos.S11, 140)
-    pca9685.Servo(pca9685.Servos.S12, 150)
-    pca9685.Servo(pca9685.Servos.S13, 160)
-    pca9685.Servo(pca9685.Servos.S14, 170)
-    pca9685.Servo(pca9685.Servos.S15, 180)
-    pause(1000)
+
 })
